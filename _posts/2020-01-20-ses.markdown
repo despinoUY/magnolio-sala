@@ -1,0 +1,8 @@
+---
+title:  "Ses"
+subtitle: "Galicia. España"
+img: http://magnoliosala.uy/img/febrero/ses.jpg
+date:   2020-01-20 10:55:01 -0300
+eventdate: 2020-02-06 21:00:00 -0300
+tickantel: https://tickantel.com.uy/inicio/espectaculo/40008501/espectaculo/SES?2
+---

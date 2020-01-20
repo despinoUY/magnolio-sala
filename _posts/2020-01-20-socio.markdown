@@ -1,0 +1,8 @@
+---
+title:  "Socio"
+subtitle: ""
+img: http://magnoliosala.uy/img/febrero/socio.jpg
+date:   2020-01-20 10:55:01 -0300
+eventdate: 2020-02-01 21:00:00 -0300
+tickantel: https://tickantel.com.uy/inicio/espectaculo/40008466/espectaculo/Socio?3
+---

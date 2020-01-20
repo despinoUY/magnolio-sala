@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+  {%- if site.posts.size > 0 -%}
+      <!-- header -->
+      <div class="evento evento-header">
+        <a class="evento-header-logo"></a>
+      </div>
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {% assign nowunix = 'now' | date: '%s' %}
+      {% assign allposts = site.posts | sort:"eventdate" %}
+      {%- for post in allposts -%}
+      {% assign posttime = post.eventdate | date: '%s' %}
+      {% if posttime >= nowunix %}
+      {% assign m = post.eventdate | date: "%-m" %}
+      {% case m %}
+      {% when '1' %}{% assign longmonth = "enero" %}
+      {% when '2' %}{% assign longmonth = "febrero" %}
+      {% when '3' %}{% assign longmonth = "marzo" %}
+      {% when '4' %}{% assign longmonth = "abril" %}
+      {% when '5' %}{% assign longmonth = "mayo" %}
+      {% when '6' %}{% assign longmonth = "junio" %}
+      {% when '7' %}{% assign longmonth = "julio" %}
+      {% when '8' %}{% assign longmonth = "agosto" %}
+      {% when '9' %}{% assign longmonth = "setiembre" %}
+      {% when '10' %}{% assign longmonth = "octubre" %}
+      {% when '11' %}{% assign longmonth = "noviembre" %}
+      {% when '12' %}{% assign longmonth = "diciembre" %}
+      {% endcase %}
+      <div class="evento">
+        <figure class="afiche">
+          <img src="{{post.img}}"
+            alt="{{post.title}} {{ post.eventdate | date: '%-d' }} {{longmonth}} {{ post.eventdate | date: '%H' }} horas en Magnolio Sala Comprá tus entradas en TickAntel">
+        </figure>
+        <article class="evento-txt">
+          <h4 class="evento-titulo">{{ post.title | escape }}</h4>
+          {%- if post.subtitle -%}
+            <h5 class="evento-subtitulo">{{ post.subtitle | escape }}</h5>
+          {%- endif -%}
+          <small class="evento-fecha">
+            {{ post.eventdate | date: "%-d" }}             {% case m %}
+            {% when '1' %}ENE
+            {% when '2' %}FEB
+            {% when '3' %}MAR
+            {% when '4' %}ABR
+            {% when '5' %}MAY
+            {% when '6' %}JUN
+            {% when '7' %}JUL
+            {% when '8' %}AGO
+            {% when '9' %}SET
+            {% when '10' %}OCT
+            {% when '11' %}NOV
+            {% when '12' %}DIC
+            {% endcase %} — {{ post.eventdate | date: "%R" }}h
+          </small>
+        </article>
+        <a 
+          title="{{ post.title | escape }} {{ post.eventdate | date: '%-d' }} {{longmonth}} {{ post.eventdate | date: '%H' }} horas en Magnolio Sala Comprá tus entradas en TickAntel" 
+          onclick="gtag('event', 'click', {'event_category': 'web-comprar', 'event_label': '{{ post.eventdate | date: '%Y' }}-{{ post.eventdate | date: '%m' }}—{{ post.title | truncatewords: 1, '' }}'})"
+          class="evento-entradas" target="_blank"
+          href="{{post.tickantel}}">Comprá tus entradas
+        </a>
+      </div>
+      {% endif %}
+      {%- endfor -%}
+  {%- endif -%}
